@@ -26,10 +26,10 @@ def add_employee(quary:str):
     return jsonify({"message": "Employee added successfully"})
 
 @app.route('/employees/<int:id>',methods=["PUT"])
-def update_employee(id,quary:str):
+def update_employee(id):
     con = connect_to_db()
     cur = con.cursor()
-    cur.execute(quary)
+    cur.execute(f"UPDATE Employees SET age = 30 WHERE id = {id}")
     con.commit()
     con.close()
 
@@ -39,7 +39,7 @@ def update_employee(id,quary:str):
 def delete_employee(id):
     con = connect_to_db()
     cur = con.cursor()
-    cur.execute("DELETE FROM Employees WHERE id = {id}")
+    cur.execute(f"DELETE FROM Employees WHERE id = {id}")
     con.commit()
     con.close()
 

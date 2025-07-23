@@ -17,14 +17,9 @@ def get_employee():
     cur = con.cursor()
     cur.execute("SELECT * FROM Employees")
     all_data = cur.fetchall()
-    
-    employee = []
-    
-    for row in all_data:
-        employee.append([{'id': row[0], 'name': row[1], 'email': row[2], 'age': row[3]}])
 
     con.close()
-    return jsonify(employee)
+    return jsonify(all_data)
 
 @app.route('/employee',methods=["POST"])
 def add_employee(quary:str):

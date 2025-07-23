@@ -4,18 +4,29 @@ from db_config import connect_to_db
 
 app = Flask(__name__)
 
-app.route('/employees',methods=['GET'])
+
+
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({"message": "This is a home page"})
+
+
+@app.route('/employees',methods=['GET'])
 def get_employee():
     con = connect_to_db()
     cur = con.cursor()
     cur.execute("SELECT * FROM Employees")
     all_data = cur.fetchall()
+    
+    employee = []
+    
+    for row in all_data:
+        employee.append([{'id': row[0], 'name': row[1], 'email': row[2], 'age': row[3]}])
+
     con.close()
+    return jsonify(employee)
 
-
-    return all_data
-
-app.route('/employees',method=["POST"])
+@app.route('/employee',methods=["POST"])
 def add_employee(quary:str):
     con = connect_to_db()
     cur = con.cursor()

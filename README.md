@@ -7,7 +7,7 @@
 - Create a function  name average_marks which takes list of integer or float using "Union".
 - Than get the size of the list using len function
 - than apply loop till size of it and inside it add all the list of element one by one in a variable sum. than finally calculate the average by dividing the sum to len of the list.
-- To calculate the grade create four categories **GRAD A above 75,"GRAD B 50-75","GRAD C 33-50","GRAD F less than 33**"
+- To calculate the grade create four categories **GRAD-A above 75,"GRAD-B 50-75","GRAD-C 33-50","GRAD-F less than 33**"
 
 #### Step - 3 Create a phone_book function using dictionary which had function - add,search and delete.
 - Apply while loop which is learn until usser enter **exit**
